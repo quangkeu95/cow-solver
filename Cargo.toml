@@ -14,6 +14,8 @@ name = "cow-solver"
 path = "src/main.rs"
 
 [dependencies]
+cow-offchain-shared = { git = "https://github.com/cowprotocol/services", package = "shared"}
+
 eyre = "0.6.8"
 serde = { version = "1.0.188", features = ["derive"] }
 thiserror = "1.0.48"
@@ -25,3 +27,4 @@ tracing-subscriber = { version = "0.3", features = ["registry", "env-filter", "f
 tracing = "0.1"
 clap = { version = "4.4.3", features = ["derive"] }
 url = {version = "2.4.1", features = ["serde"] }
+axum = "0.6.20"

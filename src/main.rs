@@ -2,12 +2,12 @@ use clap::Parser;
 use cow_solver::{cli::Cli, logging::init_tracing_subscriber};
 
 #[tokio::main]
-async fn main() -> eyre::Result<()> {
+async fn main() {
     init_tracing_subscriber();
 
     let cli = Cli::parse();
 
-    cli.run()?;
-
-    Ok(())
+    tokio::select! {
+        result = cli.run() => tracing::error!(?result, "Main exited"),
+    };
 }
